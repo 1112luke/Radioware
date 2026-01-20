@@ -1,0 +1,34 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning, backgrounds}
+
+\tikzstyle{block} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [->,>=stealth]
+
+\begin{document}
+\begin{tikzpicture}[node distance=3cm, background rectangle/.style={fill=white}, show background rectangle]
+
+    \node (block0) [block] at (0, 0) {BL Interpolate};
+    \node (block1) [block, right of=block0] {$g(t)$};
+    \node (block2) [block, right of=block1] {Sample};
+    \node (Ts0) at (0, -1.25) {$T_s$};
+    \node (lab) at (3, .7) {CT LTI};
+    \node (Ts2) at (6, -1.25) {$T_s$};
+
+    \draw [arrow] (-2.5, 0) -- node[anchor=south] {$x[n]$} (block0);
+    \draw [arrow] (block0) -- node[anchor=south] {$x(t)$} (block1);
+    \draw [arrow] (block1) -- node[anchor=south] {$y(t)$} (block2);
+    \draw [arrow] (block2) -- node[anchor=south] {$y[n]$} (8, 0);
+
+    \draw [arrow] (Ts0) -- (block0);
+    \draw [arrow] (Ts2) -- (block2);
+
+    \draw [dashed] (-1.4, 1) -- (7.1, 1);
+    \draw [dashed] (-1.4, 1) -- (-1.4, -1.5);
+    \draw [dashed] (-1.4, -1.5) -- (7.1, -1.5);
+    \draw [dashed] (7.1, -1.5) -- (7.1, 1);
+
+\end{tikzpicture}
+\end{document}
