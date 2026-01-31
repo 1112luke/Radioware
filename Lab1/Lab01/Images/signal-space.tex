@@ -1,0 +1,116 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usetikzlibrary{shapes, arrows.meta, positioning, backgrounds}
+
+\tikzstyle{block} = [rectangle, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{circ} = [circle, minimum width=.5cm, minimum height=.5cm, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [->,>=stealth]
+\tikzstyle{line} = [-]
+
+\begin{document}
+\begin{tikzpicture}[node distance=3cm, background rectangle/.style={fill=white}, show background rectangle]
+
+    \node at (.5, 2.75) {$s_0 (t)$};
+    \draw [line] (0, 2) -- (1, 2);
+    \draw [line] (1, 2) -- (1, 2.5);
+    \draw [line] (1, 2.5) -- (3, 2.5);
+    \draw [line] (3, 2.5) -- (3, 2);
+    \draw [line] (3, 2) -- (4, 2);
+    
+    \node at (.5, .75) {$s_1 (t)$};
+    \draw [line] (0, 0) -- (1, 0);
+    \draw [line] (1, 0) -- (1, .5);
+    \draw [line] (1, .5) -- (2, .5);
+    \draw [line] (2, .5) -- (2, -.5);
+    \draw [line] (2, -.5) -- (3, -.5);
+    \draw [line] (3, -.5) -- (3, 0);
+    \draw [line] (3, 0) -- (4, 0);
+    
+    \node at (4.75, .5) {$\sqrt{E \over T}$};
+    \draw [loosely dashed] (2, .5) -- (4, .5);
+    \node at (4.75, -.5) {$-\sqrt{E \over T}$};
+    \draw [loosely dashed] (3, -.5) -- (4, -.5);
+    
+    \node at (.5, -1.25) {$s_2 (t)$};
+    \draw [line] (0, -2) -- (1, -2);
+    \draw [line] (1, -2) -- (1, -2.5);
+    \draw [line] (1, -2.5) -- (2, -2.5);
+    \draw [line] (2, -2.5) -- (2, -1.5);
+    \draw [line] (2, -1.5) -- (3, -1.5);
+    \draw [line] (3, -1.5) -- (3, -2);
+    \draw [line] (3, -2) -- (4, -2);
+    
+    \node at (.5, -3.25) {$s_3 (t)$};
+    \draw [line] (0, -4) -- (1, -4);
+    \draw [line] (1, -4) -- (1, -4.5);
+    \draw [line] (1, -4.5) -- (3, -4.5);
+    \draw [line] (3, -4.5) -- (3, -4);
+    \draw [line] (3, -4) -- (4, -4);
+
+    \draw [loosely dashed] (1, 3) -- (1, -5);
+    \draw [loosely dashed] (2, 3) -- (2, -5);
+    \draw [loosely dashed] (3, 3) -- (3, -5);
+
+    \node at (1, -5.5) {$0$};
+    \node at (2, -5.5) {$T$};
+    \node at (3, -5.5) {$2T$};
+
+    % ------------------------------------------
+
+    \node at (6.5, .75) {$\varphi_1 (t)$};
+    \draw [line] (6, 0) -- (7, 0);
+    \draw [line] (7, 0) -- (7, .3);
+    \draw [line] (7, .3) -- (8, .3);
+    \draw [line] (8, .3) -- (8, 0);
+    \draw [line] (8, 0) -- (10, 0);
+    
+    \node at (10.75, .3) {$\sqrt{1 \over T}$};
+    \draw [loosely dashed] (8, .3) -- (10, .3);
+    
+    \node at (7.5, -1.25) {$\varphi_2 (t) = \varphi_1 (t-T)$};
+    \draw [line] (6, -2) -- (8, -2);
+    \draw [line] (8, -2) -- (8, -1.7);
+    \draw [line] (8, -1.7) -- (9, -1.7);
+    \draw [line] (9, -1.7) -- (9, -2);
+    \draw [line] (9, -2) -- (10, -2);
+
+    \draw [loosely dashed] (7, 2) -- (7, -1);
+    \draw [loosely dashed] (8, 2) -- (8, -1);
+    \draw [loosely dashed] (9, 2) -- (9, -3);
+    \draw [loosely dashed] (7, -1.5) -- (7, -3);
+    \draw [loosely dashed] (8, -1.5) -- (8, -3);
+
+    \node at (7, -3.5) {$0$};
+    \node at (8, -3.5) {$T$};
+    \node at (9, -3.5) {$2T$};
+
+    % ----------------------------------------
+
+    \draw [arrow] (12, -1) -- (16, -1);
+    \draw [arrow] (14, -3) -- (14, 1);
+
+    \node at (16.5, -1) {$\vec{\varphi_1}$};
+    \node at (14, 1.5) {$\vec{\varphi_2}$};
+
+    \draw [line] (13, -1.1) -- (13, -0.9);
+    \draw [line] (15, -1.1) -- (15, -0.9);
+    \draw [line] (13.9, 0) -- (14.1, 0);
+    \draw [line] (13.9, -2) -- (14.1, -2);
+
+    \fill (15, 0) circle (1pt);
+    \fill (15, -2) circle (1pt);
+    \fill (13, 0) circle (1pt);
+    \fill (13, -2) circle (1pt);
+
+    \node at (15.3, 0.3) {$\vec{s}_0$};
+    \node at (15.3, -2.3) {$\vec{s}_1$};
+    \node at (12.7, 0.3) {$\vec{s}_2$};
+    \node at (12.7, -2.3) {$\vec{s}_3$};
+
+\end{tikzpicture}
+\end{document}

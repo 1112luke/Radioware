@@ -1,0 +1,23 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning, backgrounds}
+
+\tikzstyle{block} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [->,>=stealth]
+
+\begin{document}
+\begin{tikzpicture}[node distance=3cm, background rectangle/.style={fill=white}, show background rectangle]
+
+    \node (block0) [block] at (0, 0) {$\uparrow$ M};
+    \node (block1) [block, right of=block0] {$g[n]$};
+    \node (block2) [block, right of=block1] {$\downarrow$ M};
+
+    \draw [arrow] (-2, 0) -- node[anchor=south] {$x[n]$} (block0);
+    \draw [arrow] (block0) -- (block1);
+    \draw [arrow] (block1) -- node[anchor=south] {$z[n]$} (block2);
+    \draw [arrow] (block2) -- node[anchor=south] {$y[n]$} (8, 0);
+    
+\end{tikzpicture}
+\end{document}
