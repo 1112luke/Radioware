@@ -4,7 +4,7 @@ import scipy.integrate
 
 
 T_s = 1
-A = np.sqrt(3/T_s)
+A = np.sqrt(3/T_s)j
 f = np.linspace(-20, 20, 10000)
 
 P_f = ((A*T_s)/2) * np.pow(np.sinc(f * (T_s/2)),2)*np.exp(-1j*np.pi*f*T_s)
